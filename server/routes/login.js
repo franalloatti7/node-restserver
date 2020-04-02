@@ -30,7 +30,7 @@ app.post('/login', (req, res) => {
                 }
             });
         }
-
+        console.log(bcrypt.hashSync(body.password, 10));
         if (!bcrypt.compareSync(body.password, usuarioDB.password)) {
             return res.status(400).json({
                 ok: false,
